@@ -1,0 +1,47 @@
+{
+  "model_params": {
+    "base_model_name_or_path": "./model/prime_single",
+    "tokenizer_name_or_path": "./model/prime_single",
+    "use_fast_tokenizer": true,
+    "block_size": 1024, 
+    "trust_remote_code": false
+  },
+  "data_params": {
+    "train_file": "dataset/train.tsv",
+    "val_file": "dataset/val.tsv",
+    "sequence_col_index": 0
+  },
+  "lora_params": {
+    "r": 32,
+    "lora_alpha": 64,
+    "target_modules": ["q_proj", "k_proj", "v_proj", "c_fc", "c_proj"], 
+    "lora_dropout": 0.05,
+    "bias": "none"
+  },
+  "training_params": {
+    "num_epochs": 5,
+    "batch_size": 32,
+    "learning_rate": 3e-4,
+    "weight_decay": 0.01,
+    "warmup_steps": 0,
+    "logging_steps": 20,
+    "seed": 121302
+  },
+  "generation_params": {
+    "prompt": "AG",
+    "num_sequences": 1000,
+    "max_length": 170, 
+    "min_length": 170,
+    "temperature": 1.0,
+    "top_p": 0.9,
+    "top_k": 8,
+    "repetition_penalty": 1.2,
+    "do_sample": true,
+    "verbose_logging": false
+  },
+  "output_params": {
+    "output_dir": "./finetune",
+    "generated_sequences_file": "./finetune/generation.txt"
+  },
+  "verbose_logging": false
+}

@@ -1,0 +1,51 @@
+{
+  "task_params": {
+    "type": "regression",
+    "num_classes": null
+  },
+  "data_params": {
+    "train_file": "./dataset/train.tsv",
+    "val_file": "./dataset/val.tsv",
+    "test_file": "./dataset/test.tsv",
+    "sequence_col": "sequence",
+    "label_col": "label"
+  },
+  "model_params": {
+    "base_model_name_or_path": "./model/prime_single",
+    "tokenizer_name_or_path": "./model/prime_single", 
+    "max_seq_length": 1024,
+    "trust_remote_code": false
+  },
+  "lora_params": {
+    "r": 32,
+    "lora_alpha": 64,
+    "target_modules": ["q_proj", "k_proj", "v_proj", "c_fc", "c_proj"],
+    "lora_dropout": 0.05,
+    "bias": "none"
+  },
+  "training_params": {
+    "num_epochs": 5,
+    "batch_size": 8,
+    "gradient_accumulation_steps": 1,
+    "learning_rate": 3e-4,
+    "weight_decay": 0.01,
+    "metric_for_best_model": "r2",
+    "greater_is_better": true,
+    "evaluation_strategy": "epoch",
+    "save_strategy": "epoch",
+    "logging_steps": 50,
+    "save_total_limit": 2,
+    "fp16": false,
+    "seed": 666,
+    "use_early_stopping": true,
+    "early_stopping_patience": 3,
+    "early_stopping_threshold": 0.001,
+    "overwrite_output_dir": true,
+    "report_to": "none"
+  },
+  "output_params": {
+    "output_dir": "./finetune",
+    "plot_output_dir": "./finetune"
+  }
+}
+
