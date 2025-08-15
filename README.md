@@ -8,7 +8,7 @@ It captures sequence patterns and motif features, enabling applications in:
 - Identification of cis-regulatory elements in plant genomes
 - Motif feature extraction
 - Sequence function prediction
-- De novo design regulatory element design
+- De novo design regulatory elements
 
 > The model is also available on Hugging Face: [PRIME_Single](https://huggingface.co/Zi-yangChen/PRIME_Single) and [PRIME_BPE](https://huggingface.co/Zi-yangChen/PRIME_BPE)
 
