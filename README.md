@@ -88,7 +88,9 @@ python finetune.py --config config_for_prediction.json
 
 ### 3. De novo design
 
-If you want to design CREs from scratch with PRIME, prepare a plain-text sequence file (one sequence per line).
+If you want to design CREs with PRIME, prepare a plain-text sequence file (one sequence per line).
+
+Run:
 
 ```bash
 python generate.py --config config_for_generation.json
