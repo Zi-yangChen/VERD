@@ -70,16 +70,56 @@ In this script:
 14. `--block_size` — Maximum sequence length (in tokens); longer sequences will be truncated.
 
 ### 2. Fine-tuning
-如果你想基于PRIME预训练模型并利用自己的数据微调，请准备好tsv格式的数据集文件，确保文件中含有sequence列和label列。
-```bash
-python finetune.py --config/config_for_prediction.json
+
+If you want to fine-tune PRIME on your own data, prepare a TSV file that contains at least two columns: sequence and label.
+
+```text
+sequence    label
+ACGTACGT... 1
+TGCA...     0
 ```
+
+Run:
+
+```bash
+python finetune.py --config config_for_prediction.json
+```
+
 
 ### 3. De novo design
-如果你想基于PRIME从头设计CREs，请准备好txt格式的序列文件
+
+If you want to design CREs from scratch with PRIME, prepare a plain-text sequence file (one sequence per line).
+
 ```bash
-python generate.py --config/config_for_generation.json
+python generate.py --config config_for_generation.json
 ```
 
+
 ### 4. Perturbation analysis
-你可以使用`perturb.py`脚本进行基于扰动的可解释性分析，发现CREs的内部特征！
+
+Use `explain_relative.py` for perturbation-based interpretability to reveal internal features of CREs.
+
+```bash
+python perturb.py \
+  --lora_adapter_path path/to/lora_adapter \
+  --base_model_path path/to/pretrained_model \
+  --data_file_path path/to/data.txt \
+  --output_dir path/to/output \
+  --kmer_size 3 \
+  --context_window_half_size 7 \
+  --step_size 1 \
+  --max_seq_length_model 1024 \
+  --batch_size_pred 32
+```
+In this script:  
+1. `--lora_adapter_path` — Path to the LoRA adapter weights produced by fine-tuning.
+2. `--base_model_path` — Path to the pretrained PRIME model weights to load as the base.
+3. `--data_file_path` —Input sequences for perturbation, provided as a plain-text file.
+4. `--output_dir` — Directory where the output will be saved.
+5. `--kmer_size` — Size of the k-mer used when substituting during perturbation.
+6. `--context_window_half_size` — Half of the local window size around the perturbed position.
+7. `--step_size` — Stride for sliding the perturbation window along the sequence.
+8. `--max_seq_length_model` — Maximum sequence length supported by the model during inference.
+9. `--batch_size_pred` — Batch size used during prediction.
+
+
