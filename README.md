@@ -10,7 +10,7 @@ It captures sequence patterns and motif features, enabling applications in:
 - Sequence function prediction
 - De novo design regulatory element design
 
-> The model is also available on Hugging Face: [PRIME on Hugging Face](https://huggingface.co/username/your_model_name)
+> The model is also available on Hugging Face: [PRIME_Single]([https://huggingface.co/username/your_model_name](https://huggingface.co/Zi-yangChen/PRIME_Single)) and [PRIME_BPE]([https://huggingface.co/username/your_model_name](https://huggingface.co/Zi-yangChen/PRIME_BPE))
 
 ---
 
