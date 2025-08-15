@@ -70,4 +70,16 @@ In this script:
 14. `--block_size` — Maximum sequence length (in tokens); longer sequences will be truncated.
 
 ### 2. Fine-tuning
+如果你想基于PRIME预训练模型并利用自己的数据微调，请准备好tsv格式的数据集文件，确保文件中含有sequence列和label列。
+```bash
+python finetune.py --config/config_for_prediction.json
+```
 
+### 3. De novo design
+如果你想基于PRIME从头设计CREs，请准备好txt格式的序列文件
+```bash
+python generate.py --config/config_for_generation.json
+```
+
+### 4. Perturbation analysis
+你可以使用`perturb.py`脚本进行基于扰动的可解释性分析，发现CREs的内部特征！
