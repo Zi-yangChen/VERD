@@ -1,4 +1,4 @@
-# PRIME: A Generative Foundational Language Model for Plant Cis-Regulatory Elements
+# PRIME: A Generative Foundational Language Model for Plant Cis-Regulatory Elements 
 
 [![Hugging Face](https://img.shields.io/badge/HuggingFace-Model-yellow)](https://huggingface.co/Zi-yangChen/PRIME_Single)
 [![GitHub](https://img.shields.io/badge/GitHub-Repo-blue)](https://github.com/Zi-yangChen/PRIME)
