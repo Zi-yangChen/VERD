@@ -1,16 +1,16 @@
-# PRIME: A Generative Foundational Language Model for Plant Cis-Regulatory Elements 
+# VERD: A Generative Foundational Language Model for Plant Cis-Regulatory Elements 
 
 [![Hugging Face](https://img.shields.io/badge/HuggingFace-Model-yellow)](https://huggingface.co/Zi-yangChen/PRIME_Single)
 [![GitHub](https://img.shields.io/badge/GitHub-Repo-blue)](https://github.com/Zi-yangChen/PRIME)
 
-PRIME is a **DNA language model** specifically pre-trained on **plant cis-regulatory elements (CREs)**.  
+VERD is a **DNA language model** specifically pre-trained on **plant cis-regulatory elements (CREs)**.  
 It captures sequence patterns and motif features, enabling applications in:
 - Identification of cis-regulatory elements in plant genomes
 - Motif feature extraction
 - Sequence function prediction
 - De novo design regulatory elements
 
-> The model is also available on Hugging Face: [PRIME_Single](https://huggingface.co/Zi-yangChen/PRIME_Single) and [PRIME_BPE](https://huggingface.co/Zi-yangChen/PRIME_BPE)
+> The model is also available on Hugging Face: [VERD_Single](https://huggingface.co/Zi-yangChen/PRIME_Single) and [VERD_BPE](https://huggingface.co/Zi-yangChen/PRIME_BPE)
 
 ---
 
@@ -18,14 +18,14 @@ It captures sequence patterns and motif features, enabling applications in:
 
 ### 1. Clone this repository
 ```bash
-git clone https://github.com/Zi-yangChen/PRIME.git
-cd PRIME
+git clone https://github.com/Zi-yangChen/VERD.git
+cd VERD
 ```
 
 ### 2. Create a Conda environment
 ```bash
-conda create -n prime python=3.9 -y
-conda activate prime
+conda create -n verd python=3.9 -y
+conda activate verd
 pip install -r requirements.txt
 ```
 
@@ -33,7 +33,7 @@ pip install -r requirements.txt
 
 ### 1. Pre-training from scratch
 You can use the `run_clm_noblock.py` script to pretrain a model using your own dataset.  
-Before training the model, you need a `config.json` file, which you can download from either [PRIME_Single](https://huggingface.co/Zi-yangChen/PRIME_Single) or [PRIME_BPE](https://huggingface.co/Zi-yangChen/PRIME_BPE).
+Before training the model, you need a `config.json` file, which you can download from either [VERD_Single](https://huggingface.co/Zi-yangChen/PRIME_Single) or [VERD_BPE](https://huggingface.co/Zi-yangChen/PRIME_BPE).
 
 ```bash
 python ./run_clm_noblock.py \
@@ -88,7 +88,7 @@ python finetune.py --config config_for_prediction.json
 
 ### 3. De novo design
 
-If you want to design CREs with PRIME, prepare a plain-text sequence file (one sequence per line).
+If you want to design CREs with VERD, prepare a plain-text sequence file (one sequence per line).
 
 Run:
 
